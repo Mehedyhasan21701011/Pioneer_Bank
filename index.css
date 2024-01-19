@@ -1,0 +1,48 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.text-center {
+    padding-top: 100px;
+}
+
+.submit_area {
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 10px;
+}
+
+.loginbtn {
+    text-align: center;
+}
+
+#transection_area {
+    display: none;
+}
+
+.deposit {
+    background-color: slateblue;
+
+}
+
+.withdraw {
+    background-color: lightsalmon;
+
+}
+
+.balance {
+    background-color: orange;
+
+}
+
+.common {
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.col-md-4 {
+    color: white;
+    font-weight: bold;
+}
