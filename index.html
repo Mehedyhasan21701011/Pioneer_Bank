@@ -16,8 +16,96 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
-    <h1>Welcome to Pioneer_Bank</h1>
+<body class="container">
+    <div class="login_aria">
+        <h1 class="text-center">Welcome to Pioneer_Bank</h1>
+        <div class="submit_area">
+            <h4>login</h4>
+            <input type="text" class="form-control" placeholder="Email" name="name" id="name"><br>
+            <input type="password" class="form-control" placeholder="password" name="" id=""><br>
+            <div class="loginbtn">
+                <a class="btn btn-primary btn-sm form-control" id="login" href="#" role="button">Login </a>
+
+            </div>
+        </div>
+    </div>
+    <div id="transection_area">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="deposit common">
+                    <h2>Deposit</h2>
+                    <h5 id="Depo">$0.00</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="withdraw common">
+                    <h2>Withdraw</h2>
+                    <h5 id="with">$0.00</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="balance common">
+                    <h2>Balance</h2>
+                    <h5 id="bal">$0.00</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 box">
+                <div class="submit_area">
+                    <h1>Deposit</h1>
+                    <input class="form-control" type="text" name="" id="depositvalue" placeholder="0.00"><br>
+                    <a class="btn btn-primary btn-sm " href="#" role="button" id="depbtn" placeholder="$0.00">OK </a>
+                </div>
+            </div>
+            <div class="col-md-6  box">
+                <div class="submit_area">
+                    <h1>Withdraw</h1>
+                    <input class="form-control" type="text" name="" id="withdrawvalue" placeholder="0.00"><br>
+                    <a id="withbtn" class="btn btn-primary btn-sm " href="#" role="button" placeholder="$0.00">OK </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var log = document.getElementById('login');
+            var bal = document.getElementById('bal');
+            var total = 0;
+            var depositval = 0;
+            var withval = 0;
+
+            log.addEventListener('click', function () {
+                document.getElementsByClassName('login_aria')[0].style.display = "none";
+                document.getElementById('transection_area').style.display = 'block';
+            });
+
+            document.getElementById('depbtn').addEventListener('click', function () {
+                var dvalue = parseFloat(document.getElementById('depositvalue').value) || 0;
+                total += dvalue;
+                depositval = depositval + dvalue;
+                updateBalance();
+            });
+
+            document.getElementById('withbtn').addEventListener('click', function () {
+                var wvalue = parseFloat(document.getElementById('withdrawvalue').value) || 0;
+                withval = withval + wvalue;
+                total -= wvalue;
+                updateBalance();
+            });
+
+            function updateBalance() {
+                document.getElementById('Depo').innerHTML = '$' + depositval.toFixed(2);
+                document.getElementById('with').innerHTML = '$' + withval.toFixed(2);
+                bal.innerHTML = '$' + total.toFixed(2);
+
+                document.getElementById('depositvalue').value = '';
+                document.getElementById('withdrawvalue').value = '';
+            }
+        });
+
+
+    </script>
 </body>
 
 </html>
